@@ -61,6 +61,22 @@
           },
           "defaultConfiguration": "production"
         },
+        "prerender": {
+          "builder": "@nguniversal/builders:ssr-prerender",
+          "options": {
+            "browserTarget": "fyle-frontend-challenge:build:production",
+            "serverTarget": "fyle-frontend-challenge:server:production",
+            "routes": {
+              "/**": {
+                "url": "http://localhost:4200",
+                "prerender": true
+              }
+            }
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {

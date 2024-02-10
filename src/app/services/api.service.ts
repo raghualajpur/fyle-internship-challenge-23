@@ -22,7 +22,4 @@ export class ApiService {
     return this.httpClient.get(`https://api.github.com/users/${githubUsername}/repos `)
   }
 
-  getLanguages(fullname:string){
-    return this.httpClient.get(fullname)
-  }
 }

@@ -1,5 +1,40 @@
 # Fyle Frontend Challenge
 
+In this Challenage I have made 3 Component :
+
+####  1.app component (main component)
+####  2.repos-crad component
+####  3.language component
+
+## App Component (Main Component):
+
+This component serves as the main entry point of your web application.
+It utilizes ApiServices to interact with an external API (presumably GitHub's API) to fetch user details and repositories.
+The component likely contains logic to handle user interactions, such as selecting the number of repository cards to display per page.
+It dynamically manipulates the HTML to render the fetched user details and repositories, potentially paginating them based on user preferences.
+
+
+## Repos-Card Component:
+
+This component is responsible for rendering individual repository cards.
+It receives inputs (presumably repositories) from the main App component.
+For each repository, it extracts relevant information (such as name, description, stars, forks, etc.) and displays it within a card layout.
+The component may include functionality for users to interact with each repository card, such as clicking for more details or navigating to the repository's page.
+
+
+## Language Component:
+
+This component focuses on displaying the topics associated with each repository.
+It receives topics data, likely from the Repos-Card component.
+The component renders the topics in a readable format, such as a list or tags.
+Users can potentially interact with the displayed topics, such as filtering repositories based on specific topics of interest.
+
+# Deployed Link :-
+  [Go to here](https://gleeful-torrone-b9a507.netlify.app/)
+
+
+
+
 ## Who is this for?
 
 This challenge is meant for candidates who wish to intern at Fyle and work with our engineering team. The candidate should be able to commit to at least 6 months of dedicated time for internship.

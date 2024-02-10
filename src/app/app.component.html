@@ -47,9 +47,9 @@
     <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
     <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
     <div class=" flex flex-row   content-baseline ml-min" *ngIf="display && userData && userRepos">
-      <svg class="mr-4 h-7 w-7 text-zinc-700"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3" />  <line x1="8" y1="12" x2="16" y2="12" />
+      <a [href]="userName" target="_blank"><svg class="mr-4 h-7 w-7 text-zinc-700"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3" />  <line x1="8" y1="12" x2="16" y2="12" />
       </svg>
-      <p>Github</p>
+      <p>Github</p></a>
     </div>
 
 

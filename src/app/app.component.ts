@@ -20,6 +20,7 @@ export class AppComponent implements OnInit{
   twitter:string="";
   leftDisplay:boolean=false
   rightDisplay:boolean=true
+  userName:any
   constructor(
     private apiService: ApiService,
   ) {}
@@ -33,6 +34,7 @@ export class AppComponent implements OnInit{
     this.apiService.getUser(this.searchingGit).subscribe((data: any) => {
       this.userData = data,
       this.showSkeliton=false
+      this.userName=`https://github.com/${data.login}`
       this.twitter=`https://twitter.com/${data.twitter_username}`
     });
     this.apiService.getRepos(this.searchingGit).subscribe((repos: any) => {

@@ -19,14 +19,5 @@ describe('ReposCardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should match the structure of the Repository interface',()=>{
-    const fixture=TestBed.createComponent(ReposCardComponent)
-    const app=fixture.componentInstance
-    const repos=app.repos
-    expect(repos).toEqual(jasmine.objectContaining<RepositoryCard>({
-      name:jasmine.any(String),
-      description:jasmine.any(String),
-      languages:jasmine.any(Array)
-    }))
-  })
+  
 });

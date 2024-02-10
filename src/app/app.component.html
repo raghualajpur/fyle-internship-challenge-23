@@ -1,5 +1,102 @@
-<div class="grid h-screen place-items-center">
-  <div class="font-bold text-3xl">
-    Fyle Internship Challenge
+
+  <header class="bg-gray-800 text-white py-4 flex justify-between items-center" *ngIf="title">
+    <nav class="flex gap-4 ml-5">
+        <div class="flex flex-row justify-between ml-5">
+            <div class="flex items-center space-x-2 bg-white py-1 px-2 mr-10 rounded-full">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </span>
+              <input class="text-black outline-none" [(ngModel)]="searchingGit" #inputField type="text" placeholder="Search"  [value]="searchingGit"/>
+            </div>
+            <button type="button" id="click-btn" (click)="searchForGit(inputField.value)" class="mr-10 bg-transparent hover:bg-yellow-500 text-white font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+              Search
+            </button>
+            <h1 class="text-2xl m-2">fyle-frontend-challenge app is running!</h1> 
+         </div>
+    </nav>
+  </header>
+
+
+
+  <section  class=" mt-10 flex flex-col justify-center items-center content-center flex flex-col  gap-4 mb-8   ">
+    <div class="flex flex-row justify-center items-center content-center">
+      <div class="bg-gray-300 animate-pulse rounded-full w-20 h-20" *ngIf="showSkeliton && display"></div>
+      <img [src]="userData.avatar_url" [alt]="userData.name" class="w-48 h-48  rounded-full mx-auto rounded-full mx-auto  " *ngIf="display && userData && userRepos">
+      <div class="flex flex-col justify-evenly m-5">
+        <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+          <p class="text-gray-600 mb-2" *ngIf="display && userData && userRepos ">{{userData.bio}}</p>
+          <div class="gap-2">
+            <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+            <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+              <div class="flex flex-row mb-5" *ngIf="display && userData && userRepos">
+                  <svg class="sm:h-8 w-8 text-zinc-700"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                  <p>{{userData.location}}</p>
+              </div>
+              <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+              <div class="flex" *ngIf="display && userData && userRepos">
+                  <a [href]="twitter" class="bg-blue-700 text-white hover:bg-gray-900 px-3 py-2 rounded-md">Twitter</a>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+    <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+    <div class=" flex flex-row   content-baseline ml-min" *ngIf="display && userData && userRepos">
+      <svg class="mr-4 h-7 w-7 text-zinc-700"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3" />  <line x1="8" y1="12" x2="16" y2="12" />
+      </svg>
+      <p>Github</p>
+    </div>
+
+
+
+    <div class=" mx-auto px-4 py-8 grid" >
+      <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+      <select [(ngModel)]="selectedValue" (change)="onSelectionChange()" class="block appearance-none bg-gray-800 text-white px-4 py-2 rounded-md" *ngIf="display && userData && userRepos">
+        <option value="10" default>select 10</option>
+        <option value="20">select 20</option>
+        <option value="30">select 30</option>
+        <option value="40">select 40</option>
+        <option value="50">select 50</option>
+        <option value="60">select 60</option>
+        <option value="70">select 70</option>
+        <option value="80">select 80</option>
+        <option value="90">select 90</option>
+        <option value="100">select 100</option>
+      </select>
+      <!-- Dropdown icon -->
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 12l-6-6H4l6 6 6-6h-2l-6 6z" clip-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  
+  <div class="flex flex-wrap flex-col container mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-2 gap-4" >
+    <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+    <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+    <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+    <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+    <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
+    <div class="h-8 bg-gray-200 rounded-full dark:bg-gray-200 w-40 mb-4" *ngIf="showSkeliton && display"></div>
   </div>
-</div>
+
+  <div class="flex flex-wrap flex-col container mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-2 gap-4" *ngIf=" display && userRepos && userData && modifiedRepos">
+      <app-repos-card *ngFor="let repos of modifiedRepos[activeIndex]" [repos]="repos"></app-repos-card>
+  </div>
+
+  <div class="container flex flex-wrap flex-row justify-center items-center content-center mx-auto px-4 py-8 " *ngIf=" display && userRepos && userData && modifiedRepos">
+    <div *ngIf="leftDisplay" (click)="decrementIndex()" class=" mb-4 mt-4 border-3 text-white font-bold rounded-md border-black bg-gray-800 dark:bg-gray-900 p-4 ml-4 "><span>&larr;</span></div>
+    <div *ngFor="let repos of modifiedRepos; let i = index" (click)="showOnThisIndex(i)" class="mb-4 mt-4 border-3 text-white font-bold rounded-md border-black {{i===activeIndex ? 'bg-sky-800 dark:bg-sky-900' :'bg-gray-800 dark:bg-gray-900'}} p-4 ml-4 ">{{ i+1 }}</div>
+    <div *ngIf="rightDisplay" (click)="incrementIndex()" class="mb-4 mt-4 border-3 text-white font-bold rounded-md border-black bg-gray-800 dark:bg-gray-900 p-4 ml-4 "><span>&rarr;</span></div>
+  </div>
+
+
+
+

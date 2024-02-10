@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from  '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
+import { ReposCardComponent } from './repos-card/repos-card.component';
+import { LanguageCardComponent } from './language-card/language-card.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ReposCardComponent,
+    LanguageCardComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
